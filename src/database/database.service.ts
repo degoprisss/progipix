@@ -10,11 +10,11 @@ export const databaseProvider = TypeOrmModule.forRootAsync({
     useFactory: (configService: ConfigService) => {
         return {
             type: 'postgres',
-            // host: configService.get<string>('Host'),
-            // port: configService.get<number>('Port'),
-            // username: configService.get<string>('User'),
-            // password: configService.get<string>('Password'),
-            // database: configService.get<string>('Database'),
+            host: configService.get<string>('Host'),
+            port: configService.get<number>('Port'),
+            username: configService.get<string>('User'),
+            password: configService.get<string>('Password'),
+            database: configService.get<string>('Database'),
             entities: listEntities,
             synchronize: false,
             url: configService.get<string>('DATABASE_UR'),
