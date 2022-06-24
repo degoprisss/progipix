@@ -14,7 +14,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 
 @Module({
-  imports: [ConfigModule.forRoot(), AuthModule, UsersModule, DatabaseModule, DatabasePostgreSqlModule, GuardsModule],
+  imports: [TypeOrmModule.forRoot({
+    autoLoadEntities: true,
+  }), ConfigModule.forRoot(), AuthModule, UsersModule, DatabaseModule, DatabasePostgreSqlModule, GuardsModule],
   controllers: [AppController],
   providers: [AppService, ConfigService],
 })
