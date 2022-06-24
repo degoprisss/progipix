@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { BiddingRepository } from 'src/database/repositories';
-import { CarsRepository } from 'src/database/repositories/cars/cars.repository';
-import { UsersGoodMetRepository } from 'src/database/repositories/users';
+import { BiddingRepository } from '../../database/repositories/bidding';
+import { CarsRepository } from '../../database/repositories/cars';
+import { UsersGoodMetRepository } from '../../database/repositories/users';
 import { TokenMongoDocument } from 'src/database/schemas/token.schema';
 
 @Injectable()
