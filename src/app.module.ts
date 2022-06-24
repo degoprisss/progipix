@@ -9,11 +9,14 @@ import { TokenMongoSchema } from './database/schemas/token.schema';
 import { DatabasePostgreSqlModule } from './database/database.module';
 import { UsersModule } from './routes/users/users.module';
 import { GuardsModule } from './utils/guards/auth.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 
 
 @Module({
-  imports: [ConfigModule.forRoot(), AuthModule, UsersModule, DatabaseModule, DatabasePostgreSqlModule, GuardsModule],
+  imports: [ConfigModule.forRoot(), TypeOrmModule.forRoot({
+    autoLoadEntities: true,
+  }),AuthModule, UsersModule, DatabaseModule, DatabasePostgreSqlModule, GuardsModule],
   controllers: [AppController],
   providers: [AppService, ConfigService],
 })

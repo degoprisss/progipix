@@ -9,7 +9,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 
 @Module({
-  imports: [TypeOrmModule.forFeature([UsersGoodMetRepository, BiddingRepository, CarsRepository]), AuthModule, MongooseModule.forFeature([{ name: "TokenMongo", schema: TokenMongoSchema }])],
+  imports: [TypeOrmModule.forRoot({
+    autoLoadEntities: true,
+  }), TypeOrmModule.forFeature([UsersGoodMetRepository, BiddingRepository, CarsRepository]), AuthModule, MongooseModule.forFeature([{ name: "TokenMongo", schema: TokenMongoSchema }])],
   providers: [UsersService],
   controllers: [UsersController],
 })
