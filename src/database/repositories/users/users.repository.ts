@@ -1,4 +1,4 @@
-import { UserDto } from "src/utils/dto/users.dto";
+
 import { EntityRepository, Repository } from "typeorm";
 import { UsersGootMet } from '../../entities/users'
 
@@ -6,7 +6,7 @@ import { UsersGootMet } from '../../entities/users'
 export class UsersGoodMetRepository extends Repository<UsersGootMet> {
 
     // Función para la creación de un usuario. 
-    async createUser(user: UserDto) {
+    async createUser(user) {
         try {
             const newUser = this.create(user)
             return this.save(newUser)
