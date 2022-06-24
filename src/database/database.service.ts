@@ -8,6 +8,7 @@ export const databaseProvider = TypeOrmModule.forRootAsync({
     imports: [ConfigModule.forRoot({})],
     inject: [ConfigService],
     useFactory: (configService: ConfigService) => {
+        console.log(listEntities)
         return {
             type: 'postgres',
             host: configService.get<string>('Host'),
